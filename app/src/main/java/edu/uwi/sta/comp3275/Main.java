@@ -53,6 +53,7 @@ public class Main extends AppCompatActivity {
         main_list.setAdapter(adapter);
         setListener();
 
+
     }
 
 

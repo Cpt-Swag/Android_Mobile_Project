@@ -54,14 +54,15 @@ public class VoicePlayer {
 
         try {
             mediaPlayer.prepare();
+            mediaPlayer.start();
+            Toast.makeText(context, "Playing audio", Toast.LENGTH_LONG).show();
         }
 
         catch (IOException e) {
             e.printStackTrace();
+            Toast.makeText(context, "Could not decrypt, File is now unusable", Toast.LENGTH_LONG).show();
         }
 
-        mediaPlayer.start();
-        Toast.makeText(context, "Playing audio", Toast.LENGTH_LONG).show();
     }
 
     /*
@@ -94,6 +95,10 @@ public class VoicePlayer {
             voiceEncryptor.encrypt(filePath);
             filePath = null;
         }
+    }
+
+    public int getAudioSessionID(){
+        return mediaPlayer.getAudioSessionId();
     }
 
     /*
